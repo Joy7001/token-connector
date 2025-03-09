@@ -1,5 +1,5 @@
 
-import { Coin, ArrowUpRight, ArrowDownRight, Clock } from 'lucide-react';
+import { Coins, ArrowUpRight, ArrowDownRight, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
@@ -24,7 +24,7 @@ export const TokenDisplay = ({ balance, transactions = [], className }: TokenDis
     <Card className={className}>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl flex items-center">
-          <Coin className="h-5 w-5 mr-2 text-amber-500" />
+          <Coins className="h-5 w-5 mr-2 text-amber-500" />
           Your Token Balance
         </CardTitle>
       </CardHeader>

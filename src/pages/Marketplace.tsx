@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Sidebar } from '@/components/Sidebar';
 import { TokenDisplay } from '@/components/TokenDisplay';
-import { ArrowUp, ArrowDown, Clock, Zap, Gift, Award, Shield } from 'lucide-react';
+import { ArrowUp, ArrowDown, Clock, Zap, Gift, Award, Shield, BookOpen } from 'lucide-react';
 import { transactionsData } from '@/data/transactionsData';
 
 const Marketplace = () => {
