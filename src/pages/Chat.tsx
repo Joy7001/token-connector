@@ -11,21 +11,21 @@ const initialMessages = [
   {
     id: 1,
     content: "Hello! I'm interested in learning about web development. Can you help?",
-    sender: "other",
+    sender: "other" as const,
     timestamp: "10:30 AM",
     username: "Jane Smith",
   },
   {
     id: 2,
     content: "Hi Jane! I'd be happy to help with web development. What specific areas are you interested in?",
-    sender: "self",
+    sender: "self" as const,
     timestamp: "10:32 AM",
     username: "John Doe",
   },
   {
     id: 3,
     content: "I'd like to learn React and modern frontend frameworks. I have some basic HTML/CSS knowledge.",
-    sender: "other",
+    sender: "other" as const,
     timestamp: "10:35 AM",
     username: "Jane Smith",
   },
@@ -41,7 +41,7 @@ export default function Chat() {
     const newMessage = {
       id: messages.length + 1,
       content: inputMessage,
-      sender: "self",
+      sender: "self" as const,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       username: "John Doe",
     };
