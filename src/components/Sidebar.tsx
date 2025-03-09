@@ -1,17 +1,20 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Compass, User, ShoppingBag, Home, BookOpen, MessageSquare, Moon, Sun } from 'lucide-react';
+import { Menu, X, Compass, User, ShoppingBag, Home, MessageSquare, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { ThemeToggle } from './ThemeToggle';
+import { NavTitle } from './NavTitle';
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
+  { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Explore', href: '/explore', icon: Compass },
   { name: 'Profile', href: '/profile', icon: User },
   { name: 'Marketplace', href: '/marketplace', icon: ShoppingBag },
+  { name: 'Chat', href: '/chat', icon: MessageSquare },
 ];
 
 interface SidebarProps {
@@ -68,10 +71,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <div className="flex h-full flex-col">
           {/* Logo */}
           <div className="flex h-16 items-center justify-between px-4 border-b border-slate-200 dark:border-slate-800">
-            <Link to="/" className="flex items-center space-x-2">
-              <BookOpen className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-              <span className="text-xl font-semibold neon-text">SkillSwap</span>
-            </Link>
+            <NavTitle />
             <ThemeToggle />
           </div>
 
