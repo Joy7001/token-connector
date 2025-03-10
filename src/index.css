@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -300,4 +301,23 @@
 
 .dark .brand-glow::after {
     background-color: rgba(139, 92, 246, 0.1); /* Dark mode glow */
+}
+
+/* Fix for dark mode text visibility */
+.dark {
+  & .text-gray-700 {
+    @apply text-gray-300;
+  }
+  
+  & .text-gray-400 {
+    @apply text-gray-400; /* Ensure visibility in dark mode */
+  }
+  
+  & .text-foreground {
+    @apply text-gray-100; /* Ensure high contrast in dark mode */
+  }
+  
+  & .text-muted-foreground {
+    @apply text-gray-400; /* Improve visibility for muted text */
+  }
 }
