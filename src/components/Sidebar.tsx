@@ -44,6 +44,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
     setIsOpen(!isOpen);
   };
 
+  // Calculate sidebar width for smooth animations
+  const sidebarWidth = "16rem"; // 64px or 16rem
+
   return (
     <>
       {/* Mobile menu trigger */}
@@ -73,15 +76,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
         />
       )}
 
-      {/* Sidebar container */}
+      {/* Sidebar container - Fixed position prevents selection flicker */}
       <div
         className={cn(
-          "fixed top-0 left-0 z-50 h-full transform border-r bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-all duration-300 ease-in-out",
+          "fixed top-0 left-0 z-40 h-full border-r bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-all duration-300 ease-in-out",
           isMobile 
-            ? (isOpen ? "translate-x-0 shadow-xl w-64" : "-translate-x-full w-64") 
-            : (isOpen ? "translate-x-0 shadow-xl w-64" : "translate-x-[-calc(100%-3rem)] w-64"),
+            ? (isOpen ? "translate-x-0 shadow-xl" : "-translate-x-full")
+            : (isOpen ? "translate-x-0 shadow-xl" : "-translate-x-[calc(100%-3rem)]"),
           className
         )}
+        style={{ width: sidebarWidth }}
       >
         <div className="flex h-full flex-col">
           {/* Sidebar header */}
@@ -94,7 +98,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
           </div>
 
-          {/* Sidebar content */}
+          {/* Sidebar content - Fixed height prevents content flicker */}
           <div className="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar">
             <nav className={cn("space-y-1", !isOpen && !isMobile && "opacity-0")}>
               {navigation.map((item) => {
@@ -148,13 +152,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
         </div>
       </div>
 
-      {/* Toggle button in the middle of the sidebar edge */}
+      {/* Toggle button in the middle of the sidebar edge - Fixed absolute center positioning */}
       <div 
         className={cn(
-          "fixed left-0 top-1/2 -translate-y-1/2 z-[60] transition-all duration-300",
+          "fixed left-0 top-1/2 -translate-y-1/2 z-50 transition-all duration-300",
           isMobile ? "hidden" : "",
-          isOpen ? "translate-x-64" : "translate-x-0"
+          isOpen ? `translate-x-[${sidebarWidth}]` : "translate-x-0"
         )}
+        style={{ left: isOpen ? sidebarWidth : "0" }}
       >
         <button
           type="button"
