@@ -61,10 +61,19 @@ export const Sidebar = ({ className }: SidebarProps) => {
         </button>
       )}
 
-      {/* Brand logo in top right corner */}
-      <div className="fixed top-4 right-4 z-50">
-        <div className="flex items-center justify-center h-10 w-10 bg-white dark:bg-slate-900 rounded-full shadow-md brand-glow">
-          <BookOpen className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+      {/* Fixed header with brand logo and theme toggle */}
+      <div className="fixed top-0 left-0 z-50 flex h-16 w-full items-center justify-between px-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div className="flex items-center">
+          <NavTitle />
+        </div>
+        <div className="flex items-center">
+          {/* Brand logo in top right corner */}
+          <div className="flex items-center mr-4">
+            <div className="flex items-center justify-center h-10 w-10 bg-white dark:bg-slate-900 rounded-full shadow-md brand-glow">
+              <BookOpen className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+            </div>
+          </div>
+          <ThemeToggle />
         </div>
       </div>
 
@@ -79,7 +88,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       {/* Sidebar container - Fixed position prevents selection flicker */}
       <div
         className={cn(
-          "fixed top-0 left-0 z-40 h-full border-r bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-all duration-300 ease-in-out",
+          "fixed top-16 left-0 z-40 h-[calc(100%-4rem)] border-r bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-all duration-300 ease-in-out",
           isMobile 
             ? (isOpen ? "translate-x-0 shadow-xl" : "-translate-x-full")
             : (isOpen ? "translate-x-0 shadow-xl" : "-translate-x-[calc(100%-3rem)]"),
@@ -88,16 +97,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
         style={{ width: sidebarWidth }}
       >
         <div className="flex h-full flex-col">
-          {/* Sidebar header */}
-          <div className="flex h-16 items-center justify-between px-4 border-b border-slate-200 dark:border-slate-800">
-            <div className={cn("transition-opacity duration-300", isOpen ? "opacity-100" : "opacity-0")}>
-              <NavTitle />
-            </div>
-            <div className="flex items-center">
-              {isOpen && <ThemeToggle />}
-            </div>
-          </div>
-
           {/* Sidebar content - Fixed height prevents content flicker */}
           <div className="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar">
             <nav className={cn("space-y-1", !isOpen && !isMobile && "opacity-0")}>
