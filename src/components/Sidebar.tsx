@@ -64,9 +64,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
       <div
         className={cn(
-          "fixed top-0 left-0 z-50 h-full transform border-r bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-all duration-500 ease-in-out",
-          isOpen ? "translate-x-0 shadow-xl" : "-translate-x-[calc(100%-28px)]",
-          isMobile && !isOpen && "-translate-x-full",
+          "fixed top-0 left-0 z-50 h-full transform border-r bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-transform duration-300 ease-in-out",
+          isOpen ? "translate-x-0 shadow-xl" : (isMobile ? "-translate-x-full" : "-translate-x-[calc(100%-40px)]"),
           !isMobile && "w-64",
           className
         )}
@@ -78,20 +77,21 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
             <div className="flex items-center">
               <ThemeToggle />
-              {!isMobile && (
-                <button
-                  type="button"
-                  onClick={toggleSidebar}
-                  className="ml-2 flex h-8 w-8 items-center justify-center rounded-md bg-purple-50 dark:bg-purple-900/30 text-primary hover:bg-purple-100 dark:hover:bg-purple-800/40 transition-colors duration-300"
-                  aria-label={isOpen ? 'Collapse sidebar' : 'Expand sidebar'}
-                >
-                  {isOpen ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={toggleSidebar}
+                className={cn(
+                  "ml-2 flex h-8 w-8 items-center justify-center rounded-md bg-purple-50 dark:bg-purple-900/30 text-primary hover:bg-purple-100 dark:hover:bg-purple-800/40 transition-colors duration-300",
+                  isMobile && "hidden"
+                )}
+                aria-label={isOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+              >
+                {isOpen ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
+              </button>
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-6 px-4 scroll-smooth scrollbar-thin scrollbar-thumb-purple-500/20 scrollbar-track-transparent hover:scrollbar-thumb-purple-500/40">
+          <div className="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar">
             <nav className={cn("space-y-1", !isOpen && !isMobile && "opacity-0")}>
               {navigation.map((item) => {
                 const isActive = location.pathname === item.href;
@@ -140,6 +140,19 @@ export const Sidebar = ({ className }: SidebarProps) => {
           </div>
         </div>
       </div>
+
+      {!isMobile && !isOpen && (
+        <div className="fixed top-4 left-2 z-[60] transition-all duration-300">
+          <button
+            type="button"
+            onClick={toggleSidebar}
+            className="flex h-8 w-8 items-center justify-center rounded-md bg-purple-100 dark:bg-purple-900/50 text-primary hover:bg-purple-200 dark:hover:bg-purple-800/60 transition-colors duration-300 shadow-md"
+            aria-label="Expand sidebar"
+          >
+            <ChevronRight size={16} />
+          </button>
+        </div>
+      )}
     </>
   );
 };

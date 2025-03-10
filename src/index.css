@@ -163,18 +163,48 @@
 
   .smooth-scroll {
     scroll-behavior: smooth;
-    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-purple-500/20 hover:scrollbar-thumb-purple-500/40;
+  }
+  
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.2) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(139, 92, 246, 0.2);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(139, 92, 246, 0.4);
   }
 
   .brand-glow {
-    @apply relative;
-    &::after {
-      content: '';
-      @apply absolute inset-0 rounded-full bg-purple-500/20 blur-lg scale-150 opacity-0 transition-opacity duration-300;
-    }
-    &:hover::after {
-      @apply opacity-100;
-    }
+    position: relative;
+  }
+  
+  .brand-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: rgba(139, 92, 246, 0.2);
+    filter: blur(8px);
+    transform: scale(1.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .brand-glow:hover::after {
+    opacity: 1;
   }
 }
 
@@ -299,25 +329,43 @@
   }
 }
 
-.dark .brand-glow::after {
-    background-color: rgba(139, 92, 246, 0.1); /* Dark mode glow */
+/* Fix for dark mode text visibility */
+.dark .text-gray-700 {
+  color: rgba(209, 213, 219, 1);
 }
 
-/* Fix for dark mode text visibility */
-.dark {
-  & .text-gray-700 {
-    @apply text-gray-300;
-  }
-  
-  & .text-gray-400 {
-    @apply text-gray-400; /* Ensure visibility in dark mode */
-  }
-  
-  & .text-foreground {
-    @apply text-gray-100; /* Ensure high contrast in dark mode */
-  }
-  
-  & .text-muted-foreground {
-    @apply text-gray-400; /* Improve visibility for muted text */
-  }
+.dark .text-foreground {
+  color: rgba(243, 244, 246, 1);
+}
+
+.dark .text-muted-foreground {
+  color: rgba(156, 163, 175, 1);
+}
+
+/* Brand logo animation */
+.brand-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.brand-logo::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0) 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.brand-logo:hover::before {
+  opacity: 0.7;
+}
+
+.dark .brand-glow::after {
+  background-color: rgba(139, 92, 246, 0.1); /* Dark mode glow */
 }
