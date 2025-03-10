@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Compass, User, ShoppingBag, Home, MessageSquare, LayoutDashboard } from 'lucide-react';
@@ -68,7 +69,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <ThemeToggle />
           </div>
 
-          <div className="flex-1 overflow-y-auto py-6 px-4 smooth-scroll">
+          <div className="flex-1 overflow-y-auto py-6 px-4 scroll-smooth scrollbar-thin scrollbar-thumb-purple-500/20 scrollbar-track-transparent hover:scrollbar-thumb-purple-500/40">
             <nav className="space-y-1">
               {navigation.map((item) => {
                 const isActive = location.pathname === item.href;
