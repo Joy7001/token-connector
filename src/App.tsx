@@ -14,6 +14,7 @@ import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 import { Footer } from "./components/Footer";
 
+// Create a new QueryClient instance
 const queryClient = new QueryClient();
 
 const App = () => (

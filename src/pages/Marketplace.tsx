@@ -20,16 +20,16 @@ const Marketplace = () => {
       
       <div className="flex-1 pt-16 sm:pt-0 sm:pl-64 transition-all duration-300">
         <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12">
-          <h1 className="text-4xl font-bold mb-2">Skill Marketplace</h1>
-          <p className="text-slate-600 mb-8">Discover and share skills with others</p>
+          <h1 className="text-4xl font-bold mb-2 text-slate-900 dark:text-white">Skill Marketplace</h1>
+          <p className="text-slate-700 dark:text-slate-300 mb-8">Discover and share skills with others</p>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Sidebar with info */}
             <div className="space-y-6">
-              {/* How SkillShare works */}
+              {/* How SkillSwap works */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">How SkillShare Works</CardTitle>
+                  <CardTitle className="text-xl text-slate-900 dark:text-white">How SkillSwap Works</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start space-x-3">
@@ -37,8 +37,8 @@ const Marketplace = () => {
                       <ArrowUp className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Share Your Skills</h4>
-                      <p className="text-sm text-slate-600">Create courses and tutorials to share your expertise with others.</p>
+                      <h4 className="font-medium text-slate-800 dark:text-slate-100">Share Your Skills</h4>
+                      <p className="text-sm text-slate-700 dark:text-slate-300">Create courses and tutorials to share your expertise with others.</p>
                     </div>
                   </div>
                   
@@ -47,8 +47,8 @@ const Marketplace = () => {
                       <ArrowDown className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Learn New Skills</h4>
-                      <p className="text-sm text-slate-600">Access courses and tutorials created by other skilled users.</p>
+                      <h4 className="font-medium text-slate-800 dark:text-slate-100">Learn New Skills</h4>
+                      <p className="text-sm text-slate-700 dark:text-slate-300">Access courses and tutorials created by other skilled users.</p>
                     </div>
                   </div>
                   
@@ -57,8 +57,8 @@ const Marketplace = () => {
                       <Zap className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Connect with Others</h4>
-                      <p className="text-sm text-slate-600">Build relationships with other skilled professionals in your field.</p>
+                      <h4 className="font-medium text-slate-800 dark:text-slate-100">Connect with Others</h4>
+                      <p className="text-sm text-slate-700 dark:text-slate-300">Build relationships with other skilled professionals in your field.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -74,19 +74,19 @@ const Marketplace = () => {
                 </TabsList>
                 
                 <TabsContent value="discover" className="space-y-6">
-                  <h3 className="text-xl font-semibold">Popular Skill Categories</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Popular Skill Categories</h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {skillCategories.map((category) => (
                       <Card key={category.id} className="transition-all duration-300 hover:shadow-md">
                         <CardHeader className="pb-2">
-                          <CardTitle className="flex items-center">
+                          <CardTitle className="flex items-center text-slate-900 dark:text-white">
                             <span className="text-2xl mr-2">{category.icon}</span>
                             {category.name}
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-slate-600">{category.count} skills available</p>
+                          <p className="text-slate-700 dark:text-slate-300">{category.count} skills available</p>
                         </CardContent>
                         <CardFooter>
                           <Button className="w-full">Browse Skills</Button>
@@ -95,13 +95,13 @@ const Marketplace = () => {
                     ))}
                   </div>
                   
-                  <Card className="bg-slate-50 border-dashed">
+                  <Card className="bg-slate-50 dark:bg-slate-900 border-dashed">
                     <CardContent className="flex flex-col sm:flex-row items-center justify-between p-6">
                       <div className="flex items-center mb-4 sm:mb-0">
                         <Gift className="h-10 w-10 text-primary mr-4" />
                         <div>
-                          <h3 className="font-semibold text-lg">Recommend Skills</h3>
-                          <p className="text-slate-600">Suggest skills to friends or colleagues</p>
+                          <h3 className="font-semibold text-lg text-slate-900 dark:text-white">Recommend Skills</h3>
+                          <p className="text-slate-700 dark:text-slate-300">Suggest skills to friends or colleagues</p>
                         </div>
                       </div>
                       <Button variant="outline">Share Now</Button>
@@ -110,32 +110,32 @@ const Marketplace = () => {
                 </TabsContent>
                 
                 <TabsContent value="teach" className="space-y-6">
-                  <h3 className="text-xl font-semibold">Share Your Knowledge</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Share Your Knowledge</h3>
                   
                   <div className="space-y-6">
                     <Card className="overflow-hidden">
-                      <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 flex items-center">
+                      <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 p-6 flex items-center">
                         <div className="h-12 w-12 bg-blue-500 text-white rounded-full flex items-center justify-center mr-5">
                           <BookOpen className="h-6 w-6" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-xl">Create a New Skill</h3>
-                          <p className="text-slate-600">Share your expertise with others</p>
+                          <h3 className="font-semibold text-xl text-slate-900 dark:text-white">Create a New Skill</h3>
+                          <p className="text-slate-700 dark:text-slate-300">Share your expertise with others</p>
                         </div>
                         <Button className="ml-auto">Create Skill</Button>
                       </div>
                       <CardContent className="p-6">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 p-4 rounded-lg mb-4">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
                           <div className="mb-2 sm:mb-0">
-                            <p className="font-medium">Help others learn and grow</p>
-                            <p className="text-sm text-slate-600">Your knowledge can make a difference</p>
+                            <p className="font-medium text-slate-800 dark:text-slate-100">Help others learn and grow</p>
+                            <p className="text-sm text-slate-700 dark:text-slate-300">Your knowledge can make a difference</p>
                           </div>
                           <Badge variant="outline" className="w-fit">High Demand</Badge>
                         </div>
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 p-4 rounded-lg">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                           <div className="mb-2 sm:mb-0">
-                            <p className="font-medium">Gain recognition in your field</p>
-                            <p className="text-sm text-slate-600">Build your professional reputation</p>
+                            <p className="font-medium text-slate-800 dark:text-slate-100">Gain recognition in your field</p>
+                            <p className="text-sm text-slate-700 dark:text-slate-300">Build your professional reputation</p>
                           </div>
                           <Badge variant="outline" className="w-fit">Career Booster</Badge>
                         </div>
@@ -147,11 +147,11 @@ const Marketplace = () => {
                         <CardHeader>
                           <div className="flex items-center">
                             <Award className="h-5 w-5 text-primary mr-2" />
-                            <CardTitle>Complete Challenges</CardTitle>
+                            <CardTitle className="text-slate-900 dark:text-white">Complete Challenges</CardTitle>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-slate-600 mb-4">Participate in weekly skill challenges to show off your expertise.</p>
+                          <p className="text-slate-700 dark:text-slate-300 mb-4">Participate in weekly skill challenges to show off your expertise.</p>
                         </CardContent>
                         <CardFooter>
                           <Button variant="outline" className="w-full">View Challenges</Button>
@@ -162,11 +162,11 @@ const Marketplace = () => {
                         <CardHeader>
                           <div className="flex items-center">
                             <Shield className="h-5 w-5 text-primary mr-2" />
-                            <CardTitle>Refer Friends</CardTitle>
+                            <CardTitle className="text-slate-900 dark:text-white">Refer Friends</CardTitle>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-slate-600 mb-4">Invite friends to join SkillShare and grow the community.</p>
+                          <p className="text-slate-700 dark:text-slate-300 mb-4">Invite friends to join SkillSwap and grow the community.</p>
                         </CardContent>
                         <CardFooter>
                           <Button variant="outline" className="w-full">Invite Friends</Button>

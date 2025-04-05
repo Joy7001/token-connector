@@ -11,7 +11,7 @@ export function NavTitle() {
       </div>
       <div className="overflow-hidden">
         <span className="text-xl font-semibold neon-text inline-block relative">
-          SkillShare
+          SkillSwap
         </span>
       </div>
     </Link>
