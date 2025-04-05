@@ -142,7 +142,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
             <div className="ml-3">
               <p className="text-sm font-medium text-gray-900 dark:text-gray-100">John Doe</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">125 Tokens</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Active Now</p>
             </div>
             <Button variant="ghost" size="icon" className="ml-auto purple-hover">
               <MessageSquare className="h-4 w-4" />

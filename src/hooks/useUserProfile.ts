@@ -7,7 +7,6 @@ export interface UserProfile {
   bio: string;
   avatar?: string;
   skills: string[];
-  tokens: number;
   rating: number;
   memberSince: string;
   connections: number;
@@ -28,7 +27,6 @@ export const useUserProfile = () => {
     bio: "UX designer with a passion for creating intuitive digital experiences. I love sharing my knowledge about design principles and user research methodologies.",
     avatar: undefined,
     skills: ["UX Design", "UI Design", "User Research", "Prototyping", "Figma"],
-    tokens: 125,
     rating: 4.8,
     memberSince: "Mar 2023",
     connections: 42,

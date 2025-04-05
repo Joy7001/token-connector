@@ -12,7 +12,6 @@ interface UserProfileProps {
     name: string;
     avatar?: string;
     skills: string[];
-    tokens: number;
     rating: number;
     memberSince: string;
     topInstructor?: boolean;
@@ -63,8 +62,6 @@ export const UserProfile = ({ user, className, detailed = false }: UserProfilePr
                 <Star className="h-4 w-4 fill-amber-500" />
                 <span className="font-medium">{user.rating}</span>
               </div>
-              <span className="text-gray-300">•</span>
-              <div className="text-primary font-medium">{user.tokens} Tokens</div>
             </div>
             
             {detailed && (
@@ -110,4 +107,4 @@ export const UserProfile = ({ user, className, detailed = false }: UserProfilePr
       </Card>
     </motion.div>
   );
-};
+}

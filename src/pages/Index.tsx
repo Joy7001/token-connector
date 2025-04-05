@@ -4,9 +4,7 @@ import { Hero } from '@/components/Hero';
 import { FeaturedSkills } from '@/components/FeaturedSkills';
 import { UserProfile } from '@/components/UserProfile';
 import { Sidebar } from '@/components/Sidebar';
-import { TokenDisplay } from '@/components/TokenDisplay';
 import { usersData } from '@/data/usersData';
-import { transactionsData } from '@/data/transactionsData';
 
 const Index = () => {
   // Featured instructors - get top 3
@@ -38,25 +36,16 @@ const Index = () => {
         {/* Featured Skills */}
         <FeaturedSkills />
         
-        {/* Featured Instructors & Tokens Section */}
+        {/* Featured Instructors Section */}
         <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12">
           <motion.div 
             initial="hidden"
             animate="show"
             variants={container}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="space-y-8"
           >
-            {/* Token Display */}
-            <motion.div variants={item}>
-              <TokenDisplay 
-                balance={125}
-                transactions={transactionsData}
-                className="md:col-span-1"
-              />
-            </motion.div>
-            
             {/* Featured Instructors */}
-            <motion.div variants={item} className="md:col-span-2">
+            <motion.div variants={item}>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold">Featured Instructors</h2>
                 <motion.button 

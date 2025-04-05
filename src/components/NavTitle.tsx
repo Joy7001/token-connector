@@ -11,15 +11,7 @@ export function NavTitle() {
       </div>
       <div className="overflow-hidden">
         <span className="text-xl font-semibold neon-text inline-block relative">
-          <span className="inline-block animate-pulse">S</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-2px]">k</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-4px]">i</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-6px]">l</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-4px]">l</span>
-          <span className="inline-block animate-pulse">S</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-2px]">w</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-4px]">a</span>
-          <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-2px]">p</span>
+          SkillShare
         </span>
       </div>
     </Link>

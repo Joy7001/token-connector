@@ -4,16 +4,14 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Sidebar } from '@/components/Sidebar';
-import { TokenDisplay } from '@/components/TokenDisplay';
 import { ArrowUp, ArrowDown, Clock, Zap, Gift, Award, Shield, BookOpen } from 'lucide-react';
-import { transactionsData } from '@/data/transactionsData';
 
 const Marketplace = () => {
-  // Token packs available for purchase
-  const tokenPacks = [
-    { id: 1, name: "Basic Pack", tokens: 50, price: "$9.99", popular: false },
-    { id: 2, name: "Premium Pack", tokens: 150, price: "$24.99", popular: true },
-    { id: 3, name: "Pro Pack", tokens: 500, price: "$79.99", popular: false },
+  // Featured skills categories
+  const skillCategories = [
+    { id: 1, name: "Design", count: 24, icon: "🎨" },
+    { id: 2, name: "Development", count: 36, icon: "💻" },
+    { id: 3, name: "Marketing", count: 18, icon: "📊" },
   ];
   
   return (
@@ -22,19 +20,16 @@ const Marketplace = () => {
       
       <div className="flex-1 pt-16 sm:pt-0 sm:pl-64 transition-all duration-300">
         <div className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12">
-          <h1 className="text-4xl font-bold mb-2">Token Marketplace</h1>
-          <p className="text-slate-600 mb-8">Buy and earn tokens to learn new skills</p>
+          <h1 className="text-4xl font-bold mb-2">Skill Marketplace</h1>
+          <p className="text-slate-600 mb-8">Discover and share skills with others</p>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Sidebar with token info */}
+            {/* Sidebar with info */}
             <div className="space-y-6">
-              {/* Current balance */}
-              <TokenDisplay balance={125} transactions={transactionsData} />
-              
-              {/* How tokens work */}
+              {/* How SkillShare works */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">How Tokens Work</CardTitle>
+                  <CardTitle className="text-xl">How SkillShare Works</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start space-x-3">
@@ -42,8 +37,8 @@ const Marketplace = () => {
                       <ArrowUp className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Earn Tokens</h4>
-                      <p className="text-sm text-slate-600">Share your skills with others and earn tokens when they learn from you.</p>
+                      <h4 className="font-medium">Share Your Skills</h4>
+                      <p className="text-sm text-slate-600">Create courses and tutorials to share your expertise with others.</p>
                     </div>
                   </div>
                   
@@ -52,8 +47,8 @@ const Marketplace = () => {
                       <ArrowDown className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Spend Tokens</h4>
-                      <p className="text-sm text-slate-600">Use your tokens to learn skills from other users on the platform.</p>
+                      <h4 className="font-medium">Learn New Skills</h4>
+                      <p className="text-sm text-slate-600">Access courses and tutorials created by other skilled users.</p>
                     </div>
                   </div>
                   
@@ -62,8 +57,8 @@ const Marketplace = () => {
                       <Zap className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Buy Tokens</h4>
-                      <p className="text-sm text-slate-600">Purchase token packs directly if you want to learn more skills quickly.</p>
+                      <h4 className="font-medium">Connect with Others</h4>
+                      <p className="text-sm text-slate-600">Build relationships with other skilled professionals in your field.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -72,35 +67,29 @@ const Marketplace = () => {
             
             {/* Main content with tabs */}
             <div className="lg:col-span-2">
-              <Tabs defaultValue="buy">
+              <Tabs defaultValue="discover">
                 <TabsList className="w-full mb-6">
-                  <TabsTrigger value="buy" className="flex-1">Buy Tokens</TabsTrigger>
-                  <TabsTrigger value="earn" className="flex-1">Earn Tokens</TabsTrigger>
+                  <TabsTrigger value="discover" className="flex-1">Discover Skills</TabsTrigger>
+                  <TabsTrigger value="teach" className="flex-1">Teach Skills</TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="buy" className="space-y-6">
-                  <h3 className="text-xl font-semibold">Purchase Token Packs</h3>
+                <TabsContent value="discover" className="space-y-6">
+                  <h3 className="text-xl font-semibold">Popular Skill Categories</h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    {tokenPacks.map((pack) => (
-                      <Card key={pack.id} className={`relative overflow-hidden transition-all duration-300 hover:shadow-md ${pack.popular ? 'border-primary' : ''}`}>
-                        {pack.popular && (
-                          <div className="absolute top-0 right-0">
-                            <Badge className="rounded-tl-none rounded-br-none bg-primary">Popular</Badge>
-                          </div>
-                        )}
+                    {skillCategories.map((category) => (
+                      <Card key={category.id} className="transition-all duration-300 hover:shadow-md">
                         <CardHeader className="pb-2">
-                          <CardTitle>{pack.name}</CardTitle>
+                          <CardTitle className="flex items-center">
+                            <span className="text-2xl mr-2">{category.icon}</span>
+                            {category.name}
+                          </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <div className="flex items-end mb-4">
-                            <span className="text-3xl font-bold">{pack.tokens}</span>
-                            <span className="text-slate-500 ml-2 mb-1">tokens</span>
-                          </div>
-                          <p className="text-2xl font-semibold text-slate-800">{pack.price}</p>
+                          <p className="text-slate-600">{category.count} skills available</p>
                         </CardContent>
                         <CardFooter>
-                          <Button className="w-full">Buy Now</Button>
+                          <Button className="w-full">Browse Skills</Button>
                         </CardFooter>
                       </Card>
                     ))}
@@ -111,17 +100,17 @@ const Marketplace = () => {
                       <div className="flex items-center mb-4 sm:mb-0">
                         <Gift className="h-10 w-10 text-primary mr-4" />
                         <div>
-                          <h3 className="font-semibold text-lg">Gift Tokens</h3>
-                          <p className="text-slate-600">Send tokens as a gift to friends or colleagues</p>
+                          <h3 className="font-semibold text-lg">Recommend Skills</h3>
+                          <p className="text-slate-600">Suggest skills to friends or colleagues</p>
                         </div>
                       </div>
-                      <Button variant="outline">Send Gift</Button>
+                      <Button variant="outline">Share Now</Button>
                     </CardContent>
                   </Card>
                 </TabsContent>
                 
-                <TabsContent value="earn" className="space-y-6">
-                  <h3 className="text-xl font-semibold">Ways to Earn Tokens</h3>
+                <TabsContent value="teach" className="space-y-6">
+                  <h3 className="text-xl font-semibold">Share Your Knowledge</h3>
                   
                   <div className="space-y-6">
                     <Card className="overflow-hidden">
@@ -130,25 +119,25 @@ const Marketplace = () => {
                           <BookOpen className="h-6 w-6" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-xl">Teach a Skill</h3>
-                          <p className="text-slate-600">Create and share your expertise with others</p>
+                          <h3 className="font-semibold text-xl">Create a New Skill</h3>
+                          <p className="text-slate-600">Share your expertise with others</p>
                         </div>
                         <Button className="ml-auto">Create Skill</Button>
                       </div>
                       <CardContent className="p-6">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 p-4 rounded-lg mb-4">
                           <div className="mb-2 sm:mb-0">
-                            <p className="font-medium">Each time someone learns from you</p>
-                            <p className="text-sm text-slate-600">Earn tokens when users access your skill</p>
+                            <p className="font-medium">Help others learn and grow</p>
+                            <p className="text-sm text-slate-600">Your knowledge can make a difference</p>
                           </div>
-                          <Badge variant="outline" className="token-badge w-fit">+5-15 Tokens</Badge>
+                          <Badge variant="outline" className="w-fit">High Demand</Badge>
                         </div>
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 p-4 rounded-lg">
                           <div className="mb-2 sm:mb-0">
-                            <p className="font-medium">High-rated skills bonus</p>
-                            <p className="text-sm text-slate-600">Extra tokens for 4.5+ star rated skills</p>
+                            <p className="font-medium">Gain recognition in your field</p>
+                            <p className="text-sm text-slate-600">Build your professional reputation</p>
                           </div>
-                          <Badge variant="outline" className="token-badge w-fit">+10 Tokens/month</Badge>
+                          <Badge variant="outline" className="w-fit">Career Booster</Badge>
                         </div>
                       </CardContent>
                     </Card>
@@ -162,8 +151,7 @@ const Marketplace = () => {
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-slate-600 mb-4">Participate in weekly skill challenges and earn tokens.</p>
-                          <Badge variant="outline" className="token-badge">+20-50 Tokens</Badge>
+                          <p className="text-slate-600 mb-4">Participate in weekly skill challenges to show off your expertise.</p>
                         </CardContent>
                         <CardFooter>
                           <Button variant="outline" className="w-full">View Challenges</Button>
@@ -178,8 +166,7 @@ const Marketplace = () => {
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-slate-600 mb-4">Invite friends to join SkillSwap and earn tokens.</p>
-                          <Badge variant="outline" className="token-badge">+15 Tokens per friend</Badge>
+                          <p className="text-slate-600 mb-4">Invite friends to join SkillShare and grow the community.</p>
                         </CardContent>
                         <CardFooter>
                           <Button variant="outline" className="w-full">Invite Friends</Button>
